@@ -1,4 +1,4 @@
-module github.com/abiosoft/ishell/v2
+module github.com/mh4x0f/ishell/v2
 
 go 1.16
 

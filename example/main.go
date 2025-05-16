@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/abiosoft/ishell/v2"
 	"github.com/fatih/color"
+	"github.com/mh4x0f/ishell/v2"
 )
 
 func main() {
