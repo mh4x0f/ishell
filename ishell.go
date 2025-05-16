@@ -229,7 +229,7 @@ func (s *Shell) Process(args ...string) error {
 	return handleInput(s, args)
 }
 
-// Process runs shell using args in a non-interactive mode and set the custom output as param
+// ProcessOutput runs shell using args in a non-interactive mode and set the custom output as param
 func (s *Shell) ProcessOutput(output io.Writer, args ...string) error {
 	original := s.GetOut()
 	defer s.SetOut(original)
