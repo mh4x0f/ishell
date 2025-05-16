@@ -229,6 +229,14 @@ func (s *Shell) Process(args ...string) error {
 	return handleInput(s, args)
 }
 
+// Process runs shell using args in a non-interactive mode and set the custom output as param
+func (s *Shell) ProcessOutput(output io.Writer, args ...string) error {
+	original := s.GetOut()
+	defer s.SetOut(original)
+	s.SetOut(output)
+	return handleInput(s, args)
+}
+
 func handleInput(s *Shell, line []string) error {
 	handled, err := s.handleCommand(line)
 	if handled || err != nil {
@@ -450,6 +458,10 @@ func (s *Shell) SetHomeHistoryPath(path string) {
 // SetOut sets the writer to write outputs to.
 func (s *Shell) SetOut(writer io.Writer) {
 	s.writer = writer
+}
+
+func (s *Shell) GetOut() io.Writer {
+	return s.writer
 }
 
 // SetPager sets the pager and its arguments for paged output
